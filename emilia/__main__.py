@@ -18,15 +18,15 @@ from telegram.utils.helpers import escape_markdown, mention_html
 from emilia import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, spamcheck, DAISY_IMG
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
-from emilia.modules import ALL_MODULES
-from emilia.modules.languages import tl
-from emilia.modules.helper_funcs.chat_status import is_user_admin
-from emilia.modules.helper_funcs.misc import paginate_modules
-from emilia.modules.helper_funcs.verifier import verify_welcome
-from emilia.modules.sql import languages_sql as langsql
+from ELENA.modules import ALL_MODULES
+from ELENA.modules.languages import tl
+from ELENA.modules.helper_funcs.chat_status import is_user_admin
+from ELENA.modules.helper_funcs.misc import paginate_modules
+from ELENA.modules.helper_funcs.verifier import verify_welcome
+from ELENA.modules.sql import languages_sql as langsql
 
-from emilia.modules.connection import connect_button
-from emilia.modules.languages import set_language
+from ELENA.modules.connection import connect_button
+from ELENA.modules.languages import set_language
 
 PM_START_TEXT = "start_text"
 
@@ -149,8 +149,8 @@ def start(update, context):
             buttons = InlineKeyboardMarkup(
                 [
                 [InlineKeyboardButton(text="🤿 Language", callback_data="main_setlang"), InlineKeyboardButton(text="📡  Connect Group", callback_data="main_connect")],
-                [InlineKeyboardButton(text="🦾 Support Group", url="https://t.me/gangofmafiateam"), InlineKeyboardButton(text="📞  Contact Devoloper", url="https://t.me/prabhasha999")],
-                [InlineKeyboardButton(text="⛑ Help", url="https://t.me/{}?start=help".format(context.bot.username)), InlineKeyboardButton(text="🤖 About Developer", url="https://sltechcom.webnode.com/about-us/")],
+                [InlineKeyboardButton(text="🦾 Support Group", url="https://t.me/ElenaBotTharu"), InlineKeyboardButton(text="📞  Contact Devoloper", url="https://t.me/tharukaliyanage")],
+                [InlineKeyboardButton(text="⛑ Help", url="https://t.me/{}?start=help".format(context.bot.username)),
                 [InlineKeyboardButton(text="👒 Add me to your group", url="https://t.me/{}?startgroup=new".format(context.bot.username))]])
             update.effective_message.reply_photo(DAISY_IMG,
                 tl(update.effective_message, PM_START_TEXT).format(escape_markdown(first_name), escape_markdown(context.bot.first_name), OWNER_ID),
